@@ -22,20 +22,21 @@
             {!! Form::select('is_active', array(1 => 'Active', 0 => 'Not active'), 0, ['class'=>'form-control']) !!}
         </div>
         <div class="form-group">
+            {!! Form::label('file', 'Avatar:') !!}
+            {!! Form::file('file', ['class'=>'form-control']) !!}
+        </div>
+        <div class="form-group">
             {!! Form::label('password', 'Password:') !!}
             {!! Form::password('password', ['class'=>'form-control']) !!}
         </div>
-             {{--{!! Form::hidden('user_id', '0', ['class'=>'form-control']) !!}--}}
+    {{--{!! Form::hidden('user_id', '0', ['class'=>'form-control']) !!}--}}
 
-         {{--<div class="form-group">--}}
-             {{--{!! Form::file('file', ['class'=>'form-control']) !!}--}}
-         {{--</div>--}}
 
-         <div class="form-group">
+        <div class="form-group">
 
-             {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
+            {!! Form::submit('Create User', ['class'=>'btn btn-primary']) !!}
 
-         </div>
+        </div>
 
     {!! Form::close() !!}
 
