@@ -1,0 +1,47 @@
+﻿1.composer create-project --prefer-dist laravel/laravel name_poject
+2.create db in MySQL
+3.config .env file
+4.php artisan migrate
+5.php artisan make:auth
+6.make views
+7.git init
+8.add Models and edit migrations
+9.add relations to Models
+10.add some data in db and check how working relations using tinker
+11.create routes
+	Route::resource('admin/users', 'AdminUsersController');
+	Route::resource('admin/posts', 'AdminPostsController');
+	Route::resource('admin/categories', 'AdminCategoriesController');
+	Route::resource('admin/media', 'AdminMediaController');
+12.php artisan make:controller --resource AdminUsersController
+	php artisan make:controller --resource AdminPostsController
+	php artisan make:controller --resource AdminCategoriesController
+	php artisan make:controller --resource AdminMediaController
+13.php artisan route:list (plus test controller show properly view)
+14.add links of views in controller
+15.install node.js
+16.npm install -g gulp (for compiling sass and less files)
+17.add gulpfiles.js and config it
+18.download and add css,js,fonts folders; put css and js to resourses/assets; put fonts to public;
+19.npm install (install all dependensis)
+20.npm install laravel-elixir
+21.download and add in layouts admin.blade.php
+22.add if need custom styles in assets/sass/app.scss
+23.make view users/index.blade.php
+24.add AdminUsersController in index section
+25.composer require laravelcollective/html, configure config/app.php
+26.make view users/create.blade.php with laravelcollective
+27.php artisan make:request UsersRequest (authorize make true and add roles name=>required etc.)
+28.in AdminUsersController change store(Request to UsersRequest
+29.add displaing errors (views/includes/form_error.blade.php)
+30.php artisan make:model Photo -m 
+31.add fillable in model
+32.make relations to User controller
+33.add upload file feature to form and add in AdminUsersController store method to save data in DB
+34.add photo show in page users/index
+35.add accesor(getPathAttribute) in model Photo 
+36.create admin/users/edit view (copy from create...)
+37.add link to name and photo in page admin/users/index
+38.make method update in AdminUsersController
+39.php artisan make:request UsersEditRequest (because password not always need to change)
+40.
