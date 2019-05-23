@@ -44,4 +44,9 @@
 37.add link to name and photo in page admin/users/index
 38.make method update in AdminUsersController
 39.php artisan make:request UsersEditRequest (because password not always need to change)
-40.
+40.php artisan make:middleware Admin (add sequrity to admin area)
+41.register middleware Admin in Kernel.php $routeMiddleware
+42.add in route web.php
+43.setup middleware Admin.php and add function is Admin in User model
+44.make custom 404 page in resource/views/errors/
+45.add destroy method in AdminUsersController
