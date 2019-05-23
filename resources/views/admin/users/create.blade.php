@@ -1,7 +1,7 @@
 @extends('layouts/admin')
 
 @section('content')
-    <h1>Create users</h1>
+    <h2 class="bg-primary text-center">CREATE NEW USER</h2>
 
     {!! Form::open(['method'=>'POST', 'action'=>'AdminUsersController@store', 'files'=>true]) !!}
 

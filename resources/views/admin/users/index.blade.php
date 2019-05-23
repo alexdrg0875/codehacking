@@ -1,7 +1,11 @@
 @extends('layouts/admin')
 
 @section('content')
-    <h1>Users</h1>
+    @if(Session::has('deleted_user'))
+        <p class="bg-danger">{{session('deleted_user')}}</p>
+    @endif
+
+    <h2 class="bg-primary text-center">REGISTERED USERS</h2>
 
     <table class="table">
         <thead>

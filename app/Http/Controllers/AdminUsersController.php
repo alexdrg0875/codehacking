@@ -9,6 +9,7 @@ use App\Role;
 use App\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Session;
 
 class AdminUsersController extends Controller
 {
@@ -131,7 +132,12 @@ class AdminUsersController extends Controller
     public function destroy($id)
     {
         //
-        User::findOrFail($id)->delete();
+        $user = User::findOrFail($id);
+        if($user->photo_id){                                        //preventing to delete default avatar photo
+            unlink(public_path() . $user->photo->path);    //adding to delete user photo in /images folder
+        }
+        $user->delete();
+        Session::flash('deleted_user', 'The user has been deleted');    // add putting information after deleting user
         return redirect('/admin/users');
     }
 }

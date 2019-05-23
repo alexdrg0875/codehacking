@@ -49,4 +49,6 @@
 42.add in route web.php
 43.setup middleware Admin.php and add function is Admin in User model
 44.make custom 404 page in resource/views/errors/
-45.add destroy method in AdminUsersController
+45.add form to edit page with deleting buttons
+46.add destroy method in AdminUsersController
+47.add function to delete avatar image
