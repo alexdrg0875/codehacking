@@ -52,3 +52,13 @@
 45.add form to edit page with deleting buttons
 46.add destroy method in AdminUsersController
 47.add function to delete avatar image
+---------Starting create /posts-----------------------------------------------
+48.add method index to controller
+49.create views/admin/posts/index.blade.php, create views/admin/posts/create.blade.php, create views/admin/posts/edit.blade.php
+50.php artisan make:model Post -m;edit migraton file; add fillable in model;
+51.php artisan migrate
+52.add relationship in model
+53.php artisan make:request PostsCreateRequest
+54.add in AdminPostsController store method to save data in DB
+55.php artisan make:model Category -m ; edit migrations; apply migrate
+56.
