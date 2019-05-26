@@ -50,6 +50,7 @@ class AdminUsersController extends Controller
             $input = $request->except('password');
         } else {
             $input = $request->all();
+            $input['password'] = Hash::make($request['password']);
         }
 
         if($file = $request->file('photo_id')) {
@@ -58,7 +59,6 @@ class AdminUsersController extends Controller
             $photo = Photo::create(['path' => $name]);
             $input['photo_id'] = $photo->id;
         }
-        $input['password'] = Hash::make($request['password']);
 
         User::create($input);
 
@@ -108,6 +108,7 @@ class AdminUsersController extends Controller
             $input = $request->except('password');
         } else {
             $input = $request->all();
+            $input['password'] = Hash::make($request['password']);
         }
 
         if($file = $request->file('photo_id')) {
@@ -116,7 +117,6 @@ class AdminUsersController extends Controller
             $photo = Photo::create(['path' => $name]);
             $input['photo_id'] = $photo->id;
         }
-        $input['password'] = Hash::make($request['password']);
 
         $user->update($input);
 
