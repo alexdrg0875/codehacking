@@ -29,10 +29,10 @@
                             <img height="50" src="{{$post->photo ? $post->photo->path : '/images/post_default.jpg'}}" alt="post photo">
                         </a>
                     </td>
-                    <td><a href="{{'posts/'. $post->id . '/edit'}}">{{$post->title}}</a></td>
+                    <td><a href="{{'posts/'. $post->id . '/edit'}}">{{Str::limit($post->title,20)}}</a></td>
                     <td>{{$post->user->name}}</td>
                     <td>{{$post->category ? $post->category->name : 'Uncategorized'}}</td>
-                    <td>{{$post->body}}</td>
+                    <td>{{Str::limit($post->body,30)}}</td>
                     <td>{{$post->created_at->diffForHumans()}}</td>
                     <td>{{$post->updated_at->diffForHumans()}}</td>
                 </tr>

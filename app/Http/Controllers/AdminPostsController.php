@@ -6,6 +6,7 @@ use App\Http\Requests\PostsCreateRequest;
 use App\Photo;
 use App\Post;
 use App\Category;
+use Illuminate\Support\Facades\Session;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
@@ -83,7 +84,10 @@ class AdminPostsController extends Controller
     public function edit($id)
     {
         //
-        return view('admin.posts.edit');
+
+        $post = Post::findOrFail($id);
+        $categories = Category::pluck('name', 'id')->all();
+        return view('admin.posts.edit', compact('post','categories'));
     }
 
     /**
@@ -96,6 +100,20 @@ class AdminPostsController extends Controller
     public function update(Request $request, $id)
     {
         //
+        $post = Post::findOrFail($id);
+
+        $input = $request->all();
+
+        if($file = $request->file('photo_id')) {
+            $name = time() . $file->getClientOriginalName();
+            $file->move('images', $name);   // save in public\images
+            $photo = Photo::create(['path' => $name]);
+            $input['photo_id'] = $photo->id;
+        }
+
+        $post->update($input);
+
+        return redirect('/admin/posts');
     }
 
     /**
@@ -107,5 +125,14 @@ class AdminPostsController extends Controller
     public function destroy($id)
     {
         //
+        $post = Post::findOrFail($id);
+
+        if($post->photo_id){                                        //preventing to delete default post photo
+            unlink(public_path() . $post->photo->path);    //adding to delete post photo in /images folder
+        }
+
+        $post->delete();
+        Session::flash('deleted_post', 'The post has been deleted');    // add putting information after deleting user
+        return redirect('/admin/posts');
     }
 }
