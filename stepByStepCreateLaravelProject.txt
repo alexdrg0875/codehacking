@@ -67,3 +67,5 @@
 ---------Starting create admin/categories-----------------------------------------------
 59.add method index to controller
 60.create views/admin/categories/index.blade.php, create views/admin/categories/create.blade.php, create views/admin/categories/edit.blade.php
+61.add in AdminCategoriesController store method to save data in DB
+62.add in AdminCategoriesontroller edit method, update method, destroy method
