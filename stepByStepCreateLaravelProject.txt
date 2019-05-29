@@ -16,7 +16,7 @@
 12.php artisan make:controller --resource AdminUsersController
 	php artisan make:controller --resource AdminPostsController
 	php artisan make:controller --resource AdminCategoriesController
-	php artisan make:controller --resource AdminMediaController
+	php artisan make:controller --resource AdminMediasController
 13.php artisan route:list (plus test controller show properly view)
 14.add links of views in controller
 15.install node.js
